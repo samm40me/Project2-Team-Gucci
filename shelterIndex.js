@@ -32,11 +32,13 @@ const getShelterData = async (queryShelterUrl) => {
     const response = await fetch(queryShelterUrl);
     const json = await response.json();
     //    console.log(json);
-    return json;
+      return json;
+      
   } catch (error) {
     console.log(error);
   }
 };
+getShelterData(queryShelterUrl);
 
 module.exports = { getShelterData, queryShelterUrl };
 
