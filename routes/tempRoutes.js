@@ -1,29 +1,52 @@
 var express = require("express");
 var router = express.Router();
 var debug = require("debug")("server:routes");
-const { getAllShelters, createShelters } = require("../db/models/shelterModel");
+const { getDatesForTemp } = require("../db/getDateOfLowTemp");
+const { loadTempData } = require("../db/loadInitialTempData");
+const { deleteTempData } = require("../db/deleteTempData");
+const { readOneTempData } = require("../db/readOneTempData");
 
 router.get("/", async (req, res) => {
   try {
-    debug("getting all shelters");
-    const shelters = await getAllShelters(req, res);
-    res.send(shelters);
+    debug("getting all temperatures");
+    const temperatures = await getDatesForTemp(req, res);
+    res.send(temperatures);
   } catch (err) {
     debug(err.message);
   }
 });
 
 router.post("/", async (req, res) => {
-  const newShelter = req.body;
-  debug(`adding new shelter: ${newShelter.sheltertype}`);
+  const newTemperatures = req.body;
+  debug(`adding new temperature: ${newShelter.MIN_TEMPERATURE}`);
   try {
-    const addedShelter = await createShelters(newShelter);
+    const addedTemperature = await loadTempData(newTemperatures);
     debug(
-      `added new shelter: ${addedShelter.sheltertype} with _id ${addedShelter._id}`
+      `added new temperature: ${addedTemperature.MIN_TEMPERATURE} with _id ${addedMIN_TEMPERATURE._id}`
     );
-    res.send(addedShelter);
+    res.send(addedTemperature);
   } catch (err) {
-    debug(`failed to add new shelter: ${newShelter.sheltertype}`);
+    debug(`failed to add new temperature: ${newTemperatures.MIN_TEMPERATURE} with _id ${newTemperatures}`);
+    debug(err.message);
+  }
+});
+
+router.get("/", async (req, res) => {
+  try {
+    debug("getting all get one temperature");
+    const temps = await readOneTempData(req, res);
+    res.send(temps);
+  } catch (err) {
+    debug(err.message);
+  }
+});
+
+router.delete("/", async (req, res) => {
+  try {
+    debug("deleting all temperatures");
+    const temperatures = await deleteTempData(req, res);
+    res.send(temperatures);
+  } catch (err) {
     debug(err.message);
   }
 });
