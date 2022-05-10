@@ -1,0 +1,22 @@
+{
+  "name": "crude-men",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index-men.js",
+  "scripts": {
+    "devStart":"node server.js,
+    "start": "",
+
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "mongodb": "^4.4.1"
+  },
+  "devDependencies": {
+    "dotenv": "16.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
