@@ -33,25 +33,15 @@ console.log(queryUrl);
 const getShelterData = async queryUrl => {
   try {
     const response = await fetch(queryUrl);
-    const json = await response.json();
-    console.log(json);
+    const data = await response.json();
+         
+  //  console.log(json);
   } catch (error) {
     console.log(error);
   }
 };
 
-//data1 = getShelterData(queryUrl);
+var arr = getShelterData(queryUrl);
 
-//Object.keys(data1).forEach((key) => {
-//  console.log(data1[key]); // 'Bob', 47
-//});
-for (const [key, value] of Object.entries(getShelterData(queryUrl))) {
-  console.log(`${key}: ${value}`);
-}
-//var arr = [];
-//for (var i in getShelterData(queryUrl)) {
-//  if (typeof getShelterData(queryUrl)[i] === "object") {
-//    arr.push(getShelterData(queryUrl)[i]);
-//  }
-//}
-//console.log(arr);
+var newArray = arr.filter(el => el.shelter && el.capacity && el.overnight);
+console.log(newArray);

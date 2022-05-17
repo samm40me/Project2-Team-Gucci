@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Ironman",
+    "superpowers": ["superhuman strength", "Invulnerability"],
+    "alterEgo": "Tony Stark",
+    "durability": "Indestructible"
+  },
+  {
+    "name": "Spiderman",
+    "superpowers": ["Spiper-sense", "Web-slinging", "wall-crawllig"],
+    "alterEgo": "Peter Parker",
+    "durability": "Almost Indestructible"
+  },
+  {
+    "name": "Wonder Woman",
+    "alterEgo": "Diana Prince",
+    "superpowers": ["Magic Lasso", "Bullet-proof Bracelets", "Boomerang Tiara"],
+    "durability": "Awesome"
+  },
+  {
+    "name": "other superhero",
+    "alterEgo": "John doe",
+    "superpowers": ["gun", "knife", "muscles"],
+    "durability": "Strong human"
+  }
+]
